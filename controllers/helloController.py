@@ -7,6 +7,7 @@ from slack_sdk.errors import SlackApiError
 from flask_restful import Resource
 
 
+
 class HelloController(Resource):
 
     def get(self):
