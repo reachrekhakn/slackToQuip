@@ -14,7 +14,7 @@ class HelloController(Resource):
         # WebClient insantiates a client that can call API methods
         # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
         # client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
-        client = WebClient(token="xoxb-2412490052337-2386128563351-C02ceUv3EXSK3Y8LLBB9mt1R")
+        client = WebClient(token="xoxb-2412490052337-2386128563351-5fRzhLjAQ2ukpZyseA7CVSPg")
         logger = logging.getLogger(__name__)
         # ID of channel that the message exists in
         conversation_id = "C02BNRZHB2R"
