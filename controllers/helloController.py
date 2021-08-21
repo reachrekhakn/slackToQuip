@@ -11,32 +11,16 @@ from flask_restful import Resource
 class HelloController(Resource):
 
     def get(self):
-        print("Fer")
-        # WebClient insantiates a client that can call API methods
-        # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
-        # client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
+        ############################### slack section #######################################
 
-
-
-        # slack section
-        client = WebClient(token="xoxb-2412490052337-2386128563351-IXvAQ3pmNuvEXYmInlv8D3dZ")
-        client = WebClient(token="xoxb-2412490052337-2386128563351-5fRzhLjAQ2ukpZyseA7CVSPg")
+        client = WebClient(token="xoxb-2412490052337-2386128563351-L4Eka0Vl96Z2x843bpvuw8a1")
         logger = logging.getLogger(__name__)
 #         # ID of channel that the message exists in
         conversation_id = "C02BNRZHB2R"
         message = "yes"
         result = "hi"
         try:
-            res = "hi"
-#             # Call the conversations.history method using the WebClient
-#             # The client passes the token you included in initialization
-#             result = client.conversations_history(
-#                 channel=conversation_id,
-#                 inclusive=True,
-#                 oldest="629396812.002000",
-#                 limit=10
-#             )
-            #https://hackaton-sf.slack.com/archives/C02BNRZHB2R/p1629396812002000
+
             threadStrMessages = ""
             result = client.conversations_replies(
                 channel=conversation_id,
@@ -50,9 +34,17 @@ class HelloController(Resource):
                 threadMessages.append(msg["text"])
                 threadStrMessages = threadStrMessages + "\n "
                 threadStrMessages = threadStrMessages + msg["text"]
-            ACCESS_TOKEN = 'change'
+        ############################### slack section ######################################
+
+
+        ############################### quip section #######################################
+
+            ACCESS_TOKEN = 'WkpEQU1BT0R4MnQ=|1661037573|7jTgRhINX59Ugjw2iiOHqQEgia8ZvcKm6nViNPJjh78='
             quipClient = quipclient.QuipClient(access_token=ACCESS_TOKEN)
             jso = quipClient.new_document(threadStrMessages, title="My Spreadsheet 345")
+
+        ############################### quip section #######################################
+
         except SlackApiError as e:
             print(f"Error: {e}")
         return {"response": threadStrMessages}
