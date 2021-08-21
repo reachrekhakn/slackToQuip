@@ -20,6 +20,7 @@ class HelloController(Resource):
 
         # slack section
         client = WebClient(token="xoxb-2412490052337-2386128563351-IXvAQ3pmNuvEXYmInlv8D3dZ")
+        client = WebClient(token="xoxb-2412490052337-2386128563351-5fRzhLjAQ2ukpZyseA7CVSPg")
         logger = logging.getLogger(__name__)
 #         # ID of channel that the message exists in
         conversation_id = "C02BNRZHB2R"
@@ -49,7 +50,7 @@ class HelloController(Resource):
                 threadMessages.append(msg["text"])
                 threadStrMessages = threadStrMessages + "\n "
                 threadStrMessages = threadStrMessages + msg["text"]
-            ACCESS_TOKEN = 'WkpEQU1BT0R4MnQ=|1661037573|7jTgRhINX59Ugjw2iiOHqQEgia8ZvcKm6nViNPJjh78='
+            ACCESS_TOKEN = 'change'
             quipClient = quipclient.QuipClient(access_token=ACCESS_TOKEN)
             jso = quipClient.new_document(threadStrMessages, title="My Spreadsheet 345")
         except SlackApiError as e:
